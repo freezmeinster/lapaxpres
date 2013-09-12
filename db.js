@@ -7,5 +7,6 @@ var produkSchema = new mongoose.Schema({
     kategori : String
 });
 
+
 mongoose.model('Produk', produkSchema);
 mongoose.connect("mongodb://localhost/oleafstoko");
