@@ -11,6 +11,7 @@ var swig = require('swig');
 var db = require("./db");
 var dashboard = require('./routes/dashboard');
 var dashboard_produk = require('./routes/dashboard_produk');
+var tools = require("./routes/tools");
 
 var app = express();
 
@@ -33,6 +34,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+
+app.get('/genimage/:id', tools.genimage);
+
 app.get('/dashboard', dashboard.index)
 
 app.get('/dashboard/produk', dashboard.produk)

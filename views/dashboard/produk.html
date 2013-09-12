@@ -16,16 +16,18 @@
                                 <th>Harga</th>
                                 <th class="hidden-480">Stok</th>
                                 <th class="hidden-480">Kategori</th>
+				<th>Gambar</th>
                                 <th>Action</th>
                         </tr>
                 </thead>
 
                 <tbody>{% for produk in produklist %}
                         <tr>
-                                <td>{{ produk.nama }}</td>
+                                <td>{{ produk.nama }} {{ produk.image }}</td>
                                 <td>Rp {{ produk.harga }}</td>
                                 <td class="hidden-480">{{ produk.stok }}</td>
                                 <td class="td-actions">{{ produk.kategori }}</td>
+				<td><img width="250" src="/genimage/{{ produk.image }}"/></td>
                                 <td>
                                         <div class="hidden-phone visible-desktop btn-group">
                                                 <a href="/dashboard/produk/edit/{{ produk.id }}" class="btn btn-mini btn-info">
