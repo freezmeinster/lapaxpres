@@ -1,0 +1,60 @@
+{% extends "base.html"%}
+
+{% block page_content %}
+
+<div class="row-fluid">
+        <a href="/dashboard/produk/add" class="btn btn-app btn-purple btn-small">
+		<i class="icon-cloud-upload"></i>
+                Tambah Produk
+	</a>
+        <h3 class="header smaller lighter blue">Daftar Produk</h3>
+        
+        <table id="table_report" class="table table-striped table-bordered table-hover">
+                <thead>
+                        <tr>
+                                <th>Nama</th>
+                                <th>Harga</th>
+                                <th class="hidden-480">Stok</th>
+                                <th class="hidden-480">Kategori</th>
+                                <th>Action</th>
+                        </tr>
+                </thead>
+
+                <tbody>{% for produk in produklist %}
+                        <tr>
+                                <td>{{ produk.nama }}</td>
+                                <td>Rp {{ produk.harga }}</td>
+                                <td class="hidden-480">{{ produk.stok }}</td>
+                                <td class="td-actions">{{ produk.kategori }}</td>
+                                <td>
+                                        <div class="hidden-phone visible-desktop btn-group">
+                                                <a href="/dashboard/produk/edit/{{ produk.id }}" class="btn btn-mini btn-info">
+                                                        <i class="icon-edit bigger-120"></i>
+                                                </a>
+
+                                                <a href="/dashboard/produk/delete/{{ produk.id }}" class="btn btn-mini btn-danger">
+                                                        <i class="icon-trash bigger-120"></i>
+                                                </a>
+                                        </div>
+                                </td>
+                        </tr>{% endfor %}
+                </tbody>
+        </table>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+        $(function() {
+                var oTable1 = $('#table_report').dataTable( {
+                "aoColumns": [
+              { "bSortable": false },
+              null,null,null,
+                  { "bSortable": false }
+                ] } );
+                
+        
+                $('[data-rel=tooltip]').tooltip();
+        })
+</script>
+{% endblock %}
