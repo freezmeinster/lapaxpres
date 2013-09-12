@@ -23,9 +23,26 @@ exports.add_post = function(req, res){
 };
 
 exports.edit = function(req, res){
-    res.render("dashboard/produk_edit");
+    produk.findById(req.params.id, function(err,prod,count){
+        res.render("dashboard/produk_edit",{ produk: prod });
+    });
 };
 
 exports.edit_post = function(req, res){
-    res.render("dashboard/produk_edit");
+    produk.update({_id: req.params.id},{
+                nama: req.body.nama,
+                harga: req.body.harga,
+                kategori: req.body.kategori,
+                stok: req.body.stok,
+                  },{ multi: false }, function(err){
+        res.redirect("/dashboard/produk");
+    });
+};
+
+exports.delete = function(req, res){
+    produk.remove({ _id: req.params.id }, function(err){
+        if (!err) {
+            res.redirect("/dashboard/produk");
+        }
+    });
 };

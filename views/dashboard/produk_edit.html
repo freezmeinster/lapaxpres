@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+
+{% block page_content %}
+<div id="page-content" class="clearfix">
+<div class="page-header position-relative">
+        <h1>
+                Tambah Produk
+                <small>
+                        <i class="icon-double-angle-right"></i>
+                        Common form elements and layouts
+                </small>
+        </h1>
+</div><!--/.page-header-->
+                                        
+<div class="row-fluid">
+<form class="form-horizontal" action="" method="POST">
+        <div class="control-group">
+                <label class="control-label" for="form-field-1">Nama Produk</label>
+
+                <div class="controls">
+                        <input type="text" name="nama" value="{{ produk.nama }}"/>
+                </div>
+        </div>
+        
+        <div class="control-group">
+                <label class="control-label" for="form-field-1">Harga</label>
+
+                <div class="controls">
+                        <input type="text" name="harga" value="{{ produk.harga }}"/>
+                </div>
+        </div>
+        
+        <div class="control-group">
+                <label class="control-label" for="form-field-1">Kategori</label>
+
+                <div class="controls">
+                        <input type="text"  name="kategori" value="{{ produk.kategori }}"/>
+                </div>
+        </div>
+
+        <div class="control-group">
+                <label class="control-label" for="form-field-1">Stok</label>
+
+                <div class="controls">
+                        <input type="text" class="input-mini" name="stok" value="{{ produk.stok }}"/>
+                </div>
+        </div>
+        
+        
+        <div class="form-actions">
+                <button class="btn btn-info" type="submit">
+                        <i class="icon-ok bigger-110"></i>
+                        Submit
+                </button>
+
+                &nbsp; &nbsp; &nbsp;
+                <a href="/dashboard/produk" class="btn" type="reset">
+                        <i class="icon-undo bigger-110"></i>
+                        Batal
+                </a>
+        </div>
+</form>
+</div>
+</div>
+{% endblock %}
+

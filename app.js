@@ -38,9 +38,9 @@ app.get('/dashboard', dashboard.index)
 app.get('/dashboard/produk', dashboard.produk)
 app.get('/dashboard/produk/add', dashboard_produk.add);
 app.post('/dashboard/produk/add', dashboard_produk.add_post);
-app.get('/dashboard/produk/edit', dashboard_produk.edit);
-app.post('/dashboard/produk/edit', dashboard_produk.edit_post);
-
+app.get('/dashboard/produk/edit/:id', dashboard_produk.edit);
+app.post('/dashboard/produk/edit/:id', dashboard_produk.edit_post);
+app.get('/dashboard/produk/delete/:id', dashboard_produk.delete);
 
 app.get('/dashboard/pelanggan', dashboard.index)
 
